@@ -20,13 +20,13 @@
                     if (!streamInfo) return;
                     
                     const iframe = document.getElementById('stream-iframe');
-                    if (streamInfo.m3u8) {
-                    const mpd= encodeURIComponent(streamInfo.m3u8);
+                    if (streamInfo.mpd && streamInfo.key) {
+                    const mpd= encodeURIComponent(streamInfo.mpd);
                            const [key1, key2] = streamInfo.key.split(':'); 
                      
- iframe.src =`https://tv4wap.github.io/p1?url=${mpd}`;
-                    } else if (streamInfo.mpd) {
-                        iframe.src = streamInfo.mpd;
+ iframe.src =`https://tv4wap.github.io/p14?mpd=${mpd}&keyId=${key1}&key=${key2}`;
+                    } else if (streamInfo.m3u8) {
+                        iframe.src = streamInfo.m3u8;
                     }
                 });
         });
