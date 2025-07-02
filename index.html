@@ -20,12 +20,12 @@
                     if (!streamInfo) return;
                     
                     const iframe = document.getElementById('stream-iframe');
-                    if (streamInfo.mpd && streamInfo.key) {
-                    const mpd= encodeURIComponent(streamInfo.mpd);
+                    if (streamInfo.m3u8) {
+                    const mpd= encodeURIComponent(streamInfo.m3u8);
                            const [key1, key2] = streamInfo.key.split(':'); 
                      
  iframe.src =`https://tv4wap.github.io/p1?url=${mpd}&keyId=${key1}&key=${key2}`;
-                    } else if (streamInfo.m3u8) {
+                    } else if (streamInfo.mpd) {
                         iframe.src = streamInfo.m3u8;
                     }
                 });
